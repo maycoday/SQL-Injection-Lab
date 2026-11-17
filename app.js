@@ -203,17 +203,35 @@ const STEP_DETAILS = [
 // ==========================================
 // 3. INITIALIZATION & LUCIDE ICONS
 // ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-  renderMissionGuide();
-  updateRightPanelEmpty();
-  renderImpactTable('users');
-  renderQuiz();
+function initApp() {
+  try {
+    renderMissionGuide();
+    updateRightPanelEmpty();
+    renderImpactTable('users');
+    renderQuiz();
+    refreshIcons();
+  } catch (err) {
+    console.error('Initialization error in SQL Injection Lab:', err);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+
+window.addEventListener('load', () => {
   refreshIcons();
 });
 
 function refreshIcons() {
-  if (window.lucide) {
-    window.lucide.createIcons();
+  try {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  } catch (e) {
+    console.warn('Lucide icons error:', e);
   }
 }
 
