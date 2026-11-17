@@ -1,0 +1,110 @@
+/* Custom Styles for SQL Injection Lab */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Subtle pulses and highlights */
+@keyframes highlight-pulse {
+  0% { background-color: rgba(239, 68, 68, 0.15); }
+  50% { background-color: rgba(239, 68, 68, 0.35); }
+  100% { background-color: rgba(239, 68, 68, 0.15); }
+}
+
+.pulse-injection {
+  animation: highlight-pulse 2s infinite ease-in-out;
+}
+
+@keyframes secure-pulse {
+  0% { background-color: rgba(16, 185, 129, 0.15); }
+  50% { background-color: rgba(16, 185, 129, 0.35); }
+  100% { background-color: rgba(16, 185, 129, 0.15); }
+}
+
+.pulse-secure {
+  animation: secure-pulse 2s infinite ease-in-out;
+}
+
+/* Glass & Card effects */
+.panel-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.panel-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Syntax Highlighting in Light Mode */
+.sql-keyword {
+  color: #2563eb;
+  font-weight: 700;
+}
+.sql-string {
+  color: #059669;
+}
+.sql-injected {
+  background-color: #fee2e2;
+  color: #dc2626;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  border: 1px dashed #ef4444;
+}
+.sql-param {
+  background-color: #d1fae5;
+  color: #047857;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 4px;
+  border: 1px solid #10b981;
+}
+.sql-comment {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* Timeline step connector */
+.timeline-step {
+  position: relative;
+}
+.timeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 14px;
+  bottom: -12px;
+  width: 2px;
+  background-color: #e2e8f0;
+}
